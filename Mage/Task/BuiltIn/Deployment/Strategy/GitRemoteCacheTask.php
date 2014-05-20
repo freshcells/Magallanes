@@ -85,7 +85,7 @@ class GitRemoteCacheTask extends AbstractTask implements IsReleaseAware
         $command = 'cd ' . $remoteCacheFolder . ' && /usr/bin/env git checkout ' . $branch;
         $result = $this->runCommandRemote($command) && $result;
 
-        $command = 'cd ' . $remoteCacheFolder . ' && /usr/bin/env git pull --rebase ' . $branch;
+        $command = 'cd ' . $remoteCacheFolder . ' && /usr/bin/env git pull --rebase ' . $remote . ' ' . $branch;
         $result = $this->runCommandRemote($command) && $result;
 
         $excludes = array_merge($excludes, $userExcludes);
